@@ -2,6 +2,7 @@ package chnitifa.salaheddine.booklibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,8 +21,16 @@ public class MainActivity extends AppCompatActivity {
         binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                DialogAddBook();
             }
         });
+    }
+
+    private void DialogAddBook() {
+        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        View layoutView=getLayoutInflater().inflate(R.layout.add_book,null);
+        builder.setView(layoutView);
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 }
