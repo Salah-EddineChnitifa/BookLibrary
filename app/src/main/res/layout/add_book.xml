@@ -95,7 +95,7 @@
             android:textColor="@color/colorAccent" />
 
         <Button
-            android:id="@+id/button2Cancel"
+            android:id="@+id/button1Cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
