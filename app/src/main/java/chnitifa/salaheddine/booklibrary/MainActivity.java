@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        Button add=findViewById(R.id.buttonAddBook);
-        Button cancel=findViewById(R.id.button1Cancel);
-        final EditText title_input = findViewById(R.id.editTitreBook);
-        final EditText author_input = findViewById(R.id.editAuthorBook);
+        Button add=layoutView.findViewById(R.id.buttonAddBook);
+        Button cancel=layoutView.findViewById(R.id.button1Cancel);
+        final EditText title_input = layoutView.findViewById(R.id.editTitreBook);
+        final EditText author_input = layoutView.findViewById(R.id.editAuthorBook);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 DB.addBook(title_input.getText().toString().trim(),
                         author_input.getText().toString().trim()
                         );
-                dialog.dismiss();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
