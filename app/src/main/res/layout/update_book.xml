@@ -61,11 +61,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="@drawable/dialog_buttons_border"
-            android:text="Update"
+            android:text="@string/update"
             android:textColor="@color/colorAccent" />
 
         <Button
@@ -74,11 +73,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_buttons_border"
+            android:text="@string/delete"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/button2Cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="@drawable/dialog_buttons_border"
-            android:text="Delete"
+            android:text="@string/cancel"
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
