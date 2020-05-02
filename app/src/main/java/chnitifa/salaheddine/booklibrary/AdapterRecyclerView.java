@@ -97,6 +97,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
                 DatabaseHelper DB = new DatabaseHelper(context);
                 DB.deleteOneRow(id);
                 dialog.dismiss();
+                ((Activity)context).recreate();
+
             }
         });
 
@@ -104,7 +106,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                //recreate();
+                ((Activity)context).recreate();
             }
         });
 
