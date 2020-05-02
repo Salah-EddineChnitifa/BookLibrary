@@ -21,8 +21,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     private Activity activity;
     private ArrayList book_id, book_title, book_author;
 
-    AdapterRecyclerView(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author,
-        ArrayList book_pages) {
+    AdapterRecyclerView(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author) {
         this.activity = activity;
         this.context = context;
         this.book_id = book_id;

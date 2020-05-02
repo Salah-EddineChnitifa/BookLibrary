@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         book_author = new ArrayList<>();
 
         storeDataInArrays();
+
+        Adapter=new AdapterRecyclerView(MainActivity.this,this, book_id, book_title, book_author);
+
     }
 
     void storeDataInArrays(){
