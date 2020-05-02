@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,14 +53,16 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogUpdateBook();
+                Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+                //DialogUpdateBook();
             }
         });
     }
 
     private void DialogUpdateBook() {
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
-        View layoutView= View.inflate(context,R.layout.update_book,null);
+        LayoutInflater inflater=LayoutInflater.from(context);
+        View layoutView=inflater.inflate(R.layout.update_book,null, false);
         builder.setView(layoutView);
         final AlertDialog dialog=builder.create();
         dialog.setCancelable(false);
