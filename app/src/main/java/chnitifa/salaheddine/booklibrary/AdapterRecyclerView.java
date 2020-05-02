@@ -28,6 +28,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     private Activity activity;
     private ArrayList book_id, book_title, book_author;
 
+    String id, title, author;
+
     AdapterRecyclerView(Activity activity, Context context, ArrayList book_id, ArrayList book_title, ArrayList book_author) {
         this.activity = activity;
         this.context = context;
@@ -50,16 +52,19 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
 
+        id=String.valueOf(book_id.get(position);
+        title=String.valueOf(book_title.get(position));
+        author=String.valueOf(book_author.get(position));
+
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
-                DialogUpdateBook();
+                DialogUpdateBook(id,title,author);
             }
         });
     }
 
-    private void DialogUpdateBook() {
+    private void DialogUpdateBook(final String id,final String title,final String author) {
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
         LayoutInflater inflater=LayoutInflater.from(context);
         View layoutView=inflater.inflate(R.layout.update_book,null, false);
@@ -76,6 +81,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         final EditText title_input = layoutView.findViewById(R.id.dataTitreBook);
         final EditText author_input = layoutView.findViewById(R.id.dataAuthorBook);
 
+        title_input.setText(title);
+        author_input.setText(author);
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,8 +94,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseHelper myDB = new DatabaseHelper(context);
-               // myDB.deleteOneRow(id);
+                DatabaseHelper DB = new DatabaseHelper(context);
+                DB.deleteOneRow(id);
                 dialog.dismiss();
             }
         });
