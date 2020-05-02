@@ -65,7 +65,6 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     }
 
     private void DialogUpdateBook(final String id, String title, String author) {
-        //final String _id=id;
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
         LayoutInflater inflater=LayoutInflater.from(context);
         View layoutView=inflater.inflate(R.layout.update_book,null, false);
