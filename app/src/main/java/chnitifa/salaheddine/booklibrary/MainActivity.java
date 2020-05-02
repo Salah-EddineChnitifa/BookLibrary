@@ -11,11 +11,16 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 import chnitifa.salaheddine.booklibrary.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    DatabaseHelper DB;
+    ArrayList<String> book_id, book_title, book_author;
+    AdapterRecyclerView Adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 DialogAddBook();
             }
         });
+
+        DB = new DatabaseHelper(MainActivity.this);
+        book_id = new ArrayList<>();
+        book_title = new ArrayList<>();
+        book_author = new ArrayList<>();
     }
 
     private void DialogAddBook() {
