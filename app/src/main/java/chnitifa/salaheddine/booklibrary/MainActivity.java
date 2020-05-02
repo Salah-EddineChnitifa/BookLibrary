@@ -1,6 +1,7 @@
 package chnitifa.salaheddine.booklibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.AlertDialog;
 import android.database.Cursor;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         storeDataInArrays();
 
         Adapter=new AdapterRecyclerView(MainActivity.this,this, book_id, book_title, book_author);
+        binding.recyclerView.setAdapter(Adapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
 
