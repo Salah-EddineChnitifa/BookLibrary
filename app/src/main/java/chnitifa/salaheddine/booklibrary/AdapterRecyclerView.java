@@ -39,7 +39,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     @Override
     public void onBindViewHolder(@NonNull AdapterRecyclerView.ViewHolder holder, int position) {
-
+        holder.book_id_txt.setText(String.valueOf(book_id.get(position)));
+        holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
+        holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
     }
 
     @Override
