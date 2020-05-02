@@ -73,7 +73,31 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         final EditText title_input = layoutView.findViewById(R.id.dataTitreBook);
         final EditText author_input = layoutView.findViewById(R.id.dataAuthorBook);
 
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHelper myDB = new DatabaseHelper(context);
+               // myDB.deleteOneRow(id);
+                dialog.dismiss();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                //recreate();
+            }
+        });
+
+        dialog.show();
     }
 
     @Override
