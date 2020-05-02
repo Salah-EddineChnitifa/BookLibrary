@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,25 +46,26 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterRecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdapterRecyclerView.ViewHolder holder, final int position) {
         holder.book_id_txt.setText(String.valueOf(book_id.get(position)));
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
 
-        id=String.valueOf(book_id.get(position));
-        title=String.valueOf(book_title.get(position));
-        author=String.valueOf(book_author.get(position));
-
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                id=String.valueOf(book_id.get(position));
+                title=String.valueOf(book_title.get(position));
+                author=String.valueOf(book_author.get(position));
+
                 DialogUpdateBook(id,title,author);
             }
         });
     }
 
-    private void DialogUpdateBook(String id,String title,String author) {
-        final String _id=id;
+    private void DialogUpdateBook(final String id, String title, String author) {
+        //final String _id=id;
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
         LayoutInflater inflater=LayoutInflater.from(context);
         View layoutView=inflater.inflate(R.layout.update_book,null, false);
@@ -91,7 +91,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
                 DatabaseHelper DB = new DatabaseHelper(context);
                 String t = title_input.getText().toString().trim();
                 String a = author_input.getText().toString().trim();
-                DB.updateData(_id, t, a);
+                DB.updateData(id, t, a);
                 //dialog.dismiss();
                 //((Activity)context).recreate();
             }
@@ -101,7 +101,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             @Override
             public void onClick(View v) {
                 DatabaseHelper DB = new DatabaseHelper(context);
-                DB.deleteOneRow(_id);
+                DB.deleteOneRow(id);
                 //dialog.dismiss();
                 //((Activity)context).recreate();
 
