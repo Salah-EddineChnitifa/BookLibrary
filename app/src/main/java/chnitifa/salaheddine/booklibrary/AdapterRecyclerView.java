@@ -53,7 +53,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
                 DialogUpdateBook();
             }
         });
