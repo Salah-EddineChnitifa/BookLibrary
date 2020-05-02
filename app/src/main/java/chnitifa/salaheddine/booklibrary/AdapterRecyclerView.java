@@ -64,7 +64,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         });
     }
 
-    private void DialogUpdateBook(final String id,final String title,final String author) {
+    private void DialogUpdateBook(String id,String title,String author) {
+        final String _id=id;
         AlertDialog.Builder builder= new AlertDialog.Builder(context);
         LayoutInflater inflater=LayoutInflater.from(context);
         View layoutView=inflater.inflate(R.layout.update_book,null, false);
@@ -90,7 +91,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
                 DatabaseHelper DB = new DatabaseHelper(context);
                 String t = title_input.getText().toString().trim();
                 String a = author_input.getText().toString().trim();
-                DB.updateData(id, t, a);
+                DB.updateData(_id, t, a);
                 //dialog.dismiss();
                 //((Activity)context).recreate();
             }
@@ -100,7 +101,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             @Override
             public void onClick(View v) {
                 DatabaseHelper DB = new DatabaseHelper(context);
-                DB.deleteOneRow(id);
+                DB.deleteOneRow(_id);
                 //dialog.dismiss();
                 //((Activity)context).recreate();
 
