@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -64,6 +66,13 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         dialog.setCanceledOnTouchOutside(false);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button update=layoutView.findViewById(R.id.buttonUpdateBook);
+        Button delete=layoutView.findViewById(R.id.buttonDeleteBook);
+        Button cancel=layoutView.findViewById(R.id.button2Cancel);
+        final EditText title_input = layoutView.findViewById(R.id.dataTitreBook);
+        final EditText author_input = layoutView.findViewById(R.id.dataAuthorBook);
+
 
     }
 
