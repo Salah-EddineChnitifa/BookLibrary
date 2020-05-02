@@ -10,4 +10,7 @@
     <string name="update">Update</string>
     <string name="todo">TODO</string>
     <string name="no_data">NO DATA</string>
+    <string name="are_you_sure_you_want_to_delete_all_data">Are you sure you want to delete all Data?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
 </resources>
