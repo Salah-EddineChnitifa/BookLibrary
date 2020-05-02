@@ -1,5 +1,6 @@
 package chnitifa.salaheddine.booklibrary;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -10,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -57,6 +59,47 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_delete,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.delete_all){
+            confirmDialogDeleteAll();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void confirmDialogDeleteAll() {
+        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        View layoutView=getLayoutInflater().inflate(R.layout.delete_all,null);
+        builder.setView(layoutView);
+        final AlertDialog dialog=builder.create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button yes=layoutView.findViewById(R.id.yes);
+        Button no=layoutView.findViewById(R.id.no);
+
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHelper DB = new DatabaseHelper(MainActivity.this);
+                DB.deleteAllData();
+                dialog.dismiss();
+                recreate();
+            }
+        });
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
     void storeDataInArrays(){
