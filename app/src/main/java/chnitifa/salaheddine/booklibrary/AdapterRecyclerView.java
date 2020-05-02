@@ -1,10 +1,14 @@
 package chnitifa.salaheddine.booklibrary;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
@@ -52,6 +56,14 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     }
 
     private void DialogUpdateBook() {
+        AlertDialog.Builder builder= new AlertDialog.Builder(context);
+        View layoutView= View.inflate(context,R.layout.update_book,null);
+        builder.setView(layoutView);
+        final AlertDialog dialog=builder.create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
     }
 
