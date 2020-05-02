@@ -52,7 +52,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
 
-        id=String.valueOf(book_id.get(position);
+        id=String.valueOf(book_id.get(position));
         title=String.valueOf(book_title.get(position));
         author=String.valueOf(book_author.get(position));
 
