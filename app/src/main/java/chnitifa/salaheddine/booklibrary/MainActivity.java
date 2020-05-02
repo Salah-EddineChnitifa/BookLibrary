@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 DB.addBook(title_input.getText().toString().trim(),
                         author_input.getText().toString().trim()
                         );
+                dialog.dismiss();
+                recreate();
             }
         });
 

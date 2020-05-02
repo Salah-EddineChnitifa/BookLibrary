@@ -91,8 +91,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
                 String t = title_input.getText().toString().trim();
                 String a = author_input.getText().toString().trim();
                 DB.updateData(id, t, a);
-                //dialog.dismiss();
-                //((Activity)context).recreate();
+                dialog.dismiss();
+                ((Activity)context).recreate();
             }
         });
 
@@ -101,8 +101,8 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             public void onClick(View v) {
                 DatabaseHelper DB = new DatabaseHelper(context);
                 DB.deleteOneRow(id);
-                //dialog.dismiss();
-                //((Activity)context).recreate();
+                dialog.dismiss();
+                ((Activity)context).recreate();
 
             }
         });
