@@ -53,14 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1){
-            recreate();
-        }
-    }
-
     void storeDataInArrays(){
         Cursor cursor = DB.readAllData();
         if(cursor.getCount() == 0){
@@ -101,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                recreate();
             }
         });
 
