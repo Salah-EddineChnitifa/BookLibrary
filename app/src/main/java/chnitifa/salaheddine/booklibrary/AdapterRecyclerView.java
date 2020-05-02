@@ -2,8 +2,13 @@ package chnitifa.salaheddine.booklibrary;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,7 +33,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     @NonNull
     @Override
     public AdapterRecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.data_library, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
@@ -38,12 +45,21 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     @Override
     public int getItemCount() {
-        return 0;
+        return book_id.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(@NonNull View itemView) {
+        TextView book_id_txt, book_title_txt, book_author_txt;
+        LinearLayout mainLayout;
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
+            book_id_txt = itemView.findViewById(R.id.textViewID);
+            book_title_txt = itemView.findViewById(R.id.textViewTitre);
+            book_author_txt = itemView.findViewById(R.id.textViewAuthor);
+            mainLayout = itemView.findViewById(R.id.mainLayout);
+            //Animate Recyclerview
+            Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
+            mainLayout.setAnimation(translate_anim);
         }
     }
 }
