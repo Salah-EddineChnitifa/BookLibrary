@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
 
-        storeDataInArrays()
+        storeDataInArrays();
     }
 
     void storeDataInArrays(){
