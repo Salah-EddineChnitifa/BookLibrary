@@ -3,6 +3,7 @@ package chnitifa.salaheddine.booklibrary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -39,6 +41,21 @@ public class MainActivity extends AppCompatActivity {
         book_id = new ArrayList<>();
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
+
+        storeDataInArrays()
+    }
+
+    void storeDataInArrays(){
+        Cursor cursor = DB.readAllData();
+        if(cursor.getCount() == 0){
+            Toast.makeText(this,"No data",Toast.LENGTH_SHORT).show();
+        }else{
+            while (cursor.moveToNext()){
+                book_id.add(cursor.getString(0));
+                book_title.add(cursor.getString(1));
+                book_author.add(cursor.getString(2));
+            }
+        }
     }
 
     private void DialogAddBook() {
