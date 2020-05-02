@@ -8,4 +8,6 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="todo">TODO</string>
+    <string name="no_data">NO DATA</string>
 </resources>
