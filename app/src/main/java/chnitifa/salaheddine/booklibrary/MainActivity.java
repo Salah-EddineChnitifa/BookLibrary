@@ -56,13 +56,16 @@ public class MainActivity extends AppCompatActivity {
     void storeDataInArrays(){
         Cursor cursor = DB.readAllData();
         if(cursor.getCount() == 0){
-            Toast.makeText(this,"No data",Toast.LENGTH_SHORT).show();
+            binding.imageView.setVisibility(View.VISIBLE);
+            binding.textView.setVisibility(View.VISIBLE);
         }else{
             while (cursor.moveToNext()){
                 book_id.add(cursor.getString(0));
                 book_title.add(cursor.getString(1));
                 book_author.add(cursor.getString(2));
             }
+            binding.imageView.setVisibility(View.GONE);
+            binding.textView.setVisibility(View.GONE);
         }
     }
 
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         Button cancel=layoutView.findViewById(R.id.button1Cancel);
         final EditText title_input = layoutView.findViewById(R.id.editTitreBook);
         final EditText author_input = layoutView.findViewById(R.id.editAuthorBook);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         );
             }
         });
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
