@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/ic_book_black_24dp" />
 
     <TextView
-        android:id="@+id/name_app"
+        android:id="@+id/bookapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
