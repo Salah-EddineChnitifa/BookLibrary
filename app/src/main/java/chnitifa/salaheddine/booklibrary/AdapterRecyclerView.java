@@ -51,9 +51,6 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.book_title_txt.setText(String.valueOf(book_title.get(position)));
         holder.book_author_txt.setText(String.valueOf(book_author.get(position)));
 
-        Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
-        holder.mainLayout.setAnimation(translate_anim);
-
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,6 +132,9 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
             book_title_txt = itemView.findViewById(R.id.textViewTitre);
             book_author_txt = itemView.findViewById(R.id.textViewAuthor);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+
+            Animation translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
+            mainLayout.setAnimation(translate_anim);
         }
     }
 }
